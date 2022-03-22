@@ -1,0 +1,71 @@
+.footer-main {
+  height: auto;
+  padding: 2rem 0;
+  background-color: #B53A21;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer-main li {
+  text-decoration: none;
+  list-style-type: none;
+}
+.footer-main img {
+  height: 5rem;
+  width: auto;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.2rem 1px #000;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+.footer-main a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer-main form {
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+.footer-main form textarea {
+  height: 10rem;
+}
+.footer-main form .invalid-feedback {
+  color: #000;
+}
+.footer-main .follow {
+  margin-top: 1rem;
+}
+.footer-main p {
+  width: 100vw;
+  text-align: center;
+}
+.footer-main p a {
+  text-decoration: underline;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .footer-main {
+    flex-direction: column;
+  }
+  .footer-main .links {
+    text-align: center;
+  }
+  .footer-main .links li {
+    font-size: 2rem;
+  }
+  .footer-main form {
+    width: 30rem;
+  }
+  .footer-main form input {
+    height: 3rem;
+  }
+  .footer-main .facebook-logo {
+    height: 3rem;
+    width: auto;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

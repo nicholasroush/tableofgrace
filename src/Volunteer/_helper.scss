@@ -1,0 +1,39 @@
+%polaroid {
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -12rem;
+    box-shadow: 0 0 .2rem 0 #acabab;
+
+    &:hover {
+        z-index: 100;
+        transform: rotate(0deg);
+
+        img {
+            height: 20rem;
+            width: 14rem;
+        }
+    }
+}
+
+%pol-imgs {
+    height: 18rem;
+    width: 12rem;
+    padding: 1rem 1rem 4rem 1rem;
+}
+
+%rotate-right {
+    transform: rotate(15deg);
+    margin-right: 20rem;
+}
+
+%rotate-left {
+    transform: rotate(345deg);
+    margin-right: -5rem;
+}
+
+%cards {
+    width: 25rem;
+    height: 30rem;
+}

@@ -1,0 +1,79 @@
+@import  '../_main.scss';
+@import './helper';
+
+.nav-main {
+    @include nav;
+
+    img {
+        height: 6rem;
+        padding: .5rem 0;
+        transition: height .3s ease-in-out;
+        -webkit-transition: height .3s ease-in-out;
+    }
+
+    ul {
+        @extend %links;
+    }
+
+    a {
+        text-decoration: none;
+        color: #075869;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0 1rem 0 1rem;
+
+        &:hover {
+            color: #189AB4;
+        }
+    }
+
+    .nav-donate {
+        color: #B56018;
+
+        &:hover {
+            color: #189AB4;
+        }
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+    .nav-main {
+        width: 100%;
+
+        ul {
+            display: flex;
+            position: absolute;
+            top: -35rem;
+            width: 100vw;
+            height: auto;
+            background-color: #D4F1F4;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: .95;
+            transition: .5s ease-out;
+
+            li {
+                font-size: 2rem;
+                font-weight: bold;
+                padding-bottom: 3rem;
+            }
+        }
+
+        #mobile {
+            top: 5rem;
+            transition: .5s ease-in;
+        }
+
+        .mobile-nav {
+            display: block;
+            margin-right: 2rem;
+            height: 3rem;
+            width: auto;
+        }
+    }
+}
+

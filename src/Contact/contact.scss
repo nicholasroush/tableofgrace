@@ -1,0 +1,114 @@
+@import '../_main.scss';
+@import './_helper.scss';
+
+.contact-main {
+    height: auto;
+}
+
+.contact-head {
+    text-align: center;
+    background-color: #3ADEFF;
+    padding-bottom: 3rem;
+
+    h1 {
+        color: $h1-color;
+        margin-bottom: 3rem;
+        padding-top: 1rem;
+    }
+
+    h3 {
+        color: $hilight;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.contact-content {
+    width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 5rem;
+
+    form {
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 3rem;
+    }
+
+    iframe {
+        grid-column: 2;
+        grid-row: 1;
+        margin-top: -8rem;
+        width: 80%; 
+        height: 20rem;
+        border: 0;
+    }
+}
+
+.form-text {
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.days {
+    text-align: center;
+
+    h3 {
+        color: $hilight;
+    }
+}
+
+.tel {
+    background-color: $hilight;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.facebook-logo {
+    height: 2rem;
+    width: auto;
+}
+
+@media (min-width: 320px) and (max-width: 480px) { 
+    .contact-head {
+
+        h5 {
+            font-size: 1rem;
+        }
+    }
+
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+
+        iframe {
+            margin: 4rem 0 0 0;
+            width: 100%;
+            height: 30rem;
+        }
+    }
+
+    .contact-info {
+        margin-top: 1rem;
+    }
+}

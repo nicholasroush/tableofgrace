@@ -1,0 +1,36 @@
+%overlay {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(24,154,180,1) 100%);
+    width: 65rem;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+%grid-overlay-setup {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+%grid-overlay {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+%icons {
+    height: 8rem;
+    width: auto;
+    color: #000;
+    opacity: .75;
+}
+
+%button-style {
+    padding: .2rem 1.5rem;
+    opacity: .5;
+}
+
+%button-title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-align: center;
+}

@@ -1,0 +1,102 @@
+@import '../_main.scss';
+
+.about-main {
+    height: auto;
+}
+
+.about-head {
+    height: 31rem;
+    width: 100%;
+    background-image: url('../pictures/aboutimg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    h1 {
+        text-align: center;
+        color: $h1-color;
+        font-size: 3rem;
+    }
+}
+
+.about-links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: -7rem 0 3rem 0;
+
+    .card {
+        width: 15rem;
+        align-items: center;
+        color: $hilight;
+        background-color: #D4F1F4;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .card-body {
+        text-align: center;
+    }
+}
+
+.about-link-img {
+    height: 5rem;
+    width: auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p,
+    li {
+        font-size: 1.5rem;
+        list-style-type: none;
+    }
+}
+
+.mission-main,
+.history-main,
+.board-main,
+.stats-main {
+    width: 75%;
+    margin: auto;
+    padding-bottom: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin-bottom: 2rem;
+        color: $h1-color;
+    }
+
+    img {
+        width: 50vw;
+        height: auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) { 
+    .about-head {
+        height: 20rem;
+    }
+
+    .about-links {
+        margin-top: -4rem;
+    }
+
+    .stats-main {
+
+        img {
+            width: 95vw;
+            height: auto;
+        }
+    }
+}

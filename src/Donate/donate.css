@@ -1,0 +1,56 @@
+.donate-main {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.donate-content {
+  width: 75vw;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donate-content h1 {
+  color: #05445E;
+  margin-top: 2rem;
+}
+.donate-content a {
+  height: auto;
+  width: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.donation-text {
+  width: 75%;
+  margin-top: 2rem;
+}
+.donation-text span {
+  color: #B56018;
+  font-weight: bold;
+}
+.donation-text p {
+  font-size: 1.3rem;
+}
+.donation-text a {
+  text-decoration: none;
+}
+
+.donate-page {
+  height: auto;
+  width: 70%;
+  margin: 3rem;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .donate-page {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+}
+
+/*# sourceMappingURL=donate.css.map */

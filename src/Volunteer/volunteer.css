@@ -1,0 +1,195 @@
+.vol {
+  background-color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: -12rem;
+  box-shadow: 0 0 0.2rem 0 #acabab;
+}
+.vol:hover {
+  z-index: 100;
+  transform: rotate(0deg);
+}
+.vol:hover img {
+  height: 20rem;
+  width: 14rem;
+}
+
+.vol img {
+  height: 18rem;
+  width: 12rem;
+  padding: 1rem 1rem 4rem 1rem;
+}
+
+.pol-two,
+.pol-four,
+.pol-six {
+  transform: rotate(15deg);
+  margin-right: 20rem;
+}
+
+.pol-one,
+.pol-three,
+.pol-five {
+  transform: rotate(345deg);
+  margin-right: -5rem;
+}
+
+.volunteer-options .card {
+  width: 25rem;
+  height: 30rem;
+}
+
+.volunteer-main {
+  width: 100%;
+  height: auto;
+}
+
+.volunteer-head {
+  height: 60rem;
+  width: 100%;
+  background-image: url("../pictures/svg-path1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.volunteer-head-text {
+  width: 47rem;
+  margin-left: 2rem;
+  margin-top: -20rem;
+}
+.volunteer-head-text h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #05445E;
+}
+.volunteer-head-text .vol-text {
+  font-weight: normal;
+  margin: 3rem 0;
+}
+.volunteer-head-text .vol-text span {
+  color: #B56018;
+  font-weight: bold;
+}
+.volunteer-head-text Button {
+  margin: 2rem 0 0 20rem;
+}
+
+.shift-times {
+  text-align: center;
+}
+.shift-times h3,
+.shift-times h4 {
+  color: #B56018;
+}
+.shift-times h5 {
+  font-weight: normal;
+}
+
+.polaroid-pics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.volunteer-options {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 4rem 0;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .volunteer-main {
+    width: 100vw;
+  }
+
+  .volunteer-head {
+    flex-direction: column;
+    background-size: cover;
+    height: auto;
+  }
+
+  .volunteer-head-text {
+    margin: 3rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .volunteer-head-text h4 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  .volunteer-head-text button {
+    margin: auto;
+  }
+}
+@media (min-width: 375px) and (max-width: 480px) {
+  .polaroid-pics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .pol-one, .pol-four {
+    margin: 0 0 0 3rem;
+  }
+
+  .pol-two, .pol-five {
+    transform: rotate(0deg);
+    margin: 0 0 2rem -2rem;
+  }
+
+  .pol-three, .pol-six {
+    transform: rotate(15deg);
+    margin: 0 0 0 -2rem;
+  }
+
+  .pol-four {
+    transform: rotate(345deg);
+  }
+}
+@media (min-width: 320px) and (max-width: 374px) {
+  .vol img {
+    height: 15rem;
+    width: 10rem;
+  }
+  .vol img:hover {
+    height: 18rem;
+    width: 12rem;
+  }
+
+  .polaroid-pics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .pol-one, .pol-four {
+    margin: 0 0 0 3rem;
+  }
+
+  .pol-two, .pol-five {
+    transform: rotate(0deg);
+    margin: 0 0 2rem -2rem;
+  }
+
+  .pol-three, .pol-six {
+    transform: rotate(15deg);
+    margin: 0 0 0 -2rem;
+  }
+
+  .pol-four {
+    transform: rotate(345deg);
+  }
+}
+
+/*# sourceMappingURL=volunteer.css.map */

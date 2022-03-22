@@ -1,0 +1,61 @@
+@import '../_main.scss';
+
+.donate-main {
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    background-color: antiquewhite; 
+}
+
+.donate-content {
+    width: 75vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: $h1-color;
+        margin-top: 2rem;
+    }
+
+    a {
+        height: auto;
+        width: auto;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+.donation-text {
+    width: 75%;
+    margin-top: 2rem;
+
+    span {
+        color: $hilight;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.donate-page {
+    height: auto;
+    width: 70%;
+    margin: 3rem;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .donate-page {
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+}

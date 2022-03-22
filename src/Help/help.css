@@ -1,0 +1,34 @@
+.help-main .card {
+  width: 20rem;
+  background-color: #75E6DA;
+  align-items: center;
+}
+.help-main .card .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.help-main .card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help-main {
+  height: auto;
+  margin: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .help-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    margin-bottom: 3rem;
+  }
+}
+
+/*# sourceMappingURL=help.css.map */

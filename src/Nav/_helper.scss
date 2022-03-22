@@ -1,0 +1,21 @@
+@mixin nav($nav: #D4F1F4) {
+    background: $nav;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+%links {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 80vw;
+    list-style-type: none;
+    margin-top: 1rem;
+}
