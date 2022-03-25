@@ -7,53 +7,53 @@ import { FaFacebookSquare } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
-import { ReCAPTCHA } from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 
 const SERVICE_ID = "service_brumrws";
 const TEMPLATE_ID = "template_zdjcg3l";
 const USER_ID = "NQE1i_1bFX6wUO4Sb";
 
+const REACT_APP_RECAPTCHA_SITE_KEY='6LfOqv0eAAAAABepW8PBOc5EawZeEr-4cbCi0Vq1';
+const REACT_APP_RECAPTCHA_SECRET_KEY='6LfOqv0eAAAAAO5eSCzMij0XoQKMqud1kQ44oGsm';
+
 
 export function Footer() {
-    const recaptchaRef = useRef(null)
+    const recaptchaRef = useRef(null);
 
     const handleSubmit = async (e) => {
-
-        //need for emailJS
         e.preventDefault();
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
-        .then((result) => {
-            console.log(result.text);
-            Swal.fire({
-            icon: 'success',
-            title: 'Message Sent Successfully'
-            })
-        }, (error) => {
-            console.log(error.text);
-            Swal.fire({
-            icon: 'error',
-            title: 'Ooops, something went wrong',
-            text: error.text,
-            })
-        });
-        e.target.reset()
-        
-        //ReCaptcha API request... button at bottom of form before submit
+
+        //recaptcha API request
         const captchaToken = await recaptchaRef.current.executeAsync();
         recaptchaRef.current.reset();
         
         const res = await axios.post(
-            `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
+            `https://www.google.com/recaptcha/api/siteverify?secret=${REACT_APP_RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
             { 
                 captchaToken
             }
         );
 
-        if(res.data.success)
-            console.log('Human');
-        else
-            console.log('BOT!!!');
+        //sends email through emailjs if success ==> error: (No 'Access-Control-Allow-Origin' header is present on the requested resource.)
+        if(res.data.success) {
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
+            .then((result) => {
+                console.log(result.text);
+                Swal.fire({
+                icon: 'success',
+                title: 'Message Sent Successfully'
+                })
+            }, (error) => {
+                console.log(error.text);
+                Swal.fire({
+                icon: 'error',
+                title: 'Ooops, something went wrong',
+                text: error.text,
+                })
+            });
+            e.target.reset()
+        }
     }
 
     return (
@@ -101,7 +101,8 @@ export function Footer() {
                     </Form.Group>
                     <ReCAPTCHA 
                         ref={recaptchaRef}
-                        siteKey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                        size='invisible'
+                        sitekey={REACT_APP_RECAPTCHA_SITE_KEY}
                     />
                     <Button variant="secondary" type="submit">
                         Submit
