@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import './forms.css';
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -7,20 +7,35 @@ import Button from "react-bootstrap/Button";
 import { formContext } from "../../components/context";
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
-
-const SERVICE_ID = "service_brumrws";
-const TEMPLATE_ID = "template_6x83k7q";
-const USER_ID = "NQE1i_1bFX6wUO4Sb";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export function FoodDelivery() {
-    const [option, setOption] = useState('delivery');
+    const [volOption, setVolOption] = useState('Food Delivery');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const {deliveryDisplay} = useContext(formContext);
+    const recaptchaRef = useRef(null);
+    const formState = { firstName, lastName, email, phone, volOption };
 
-    const handleOnSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
+
+        const captchaToken = await recaptchaRef.current.executeAsync();
+        const params = {
+            ...formState,
+            'g-recaptcha-response': captchaToken
+        };
+
+        emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_VOL_TEMPLATE_ID, params, process.env.REACT_APP_USER_ID)
         .then((result) => {
             console.log(result.text);
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setPhone('');
+            setVolOption(volOption);
             Swal.fire({
             icon: 'success',
             title: 'Message Sent Successfully'
@@ -33,11 +48,11 @@ export function FoodDelivery() {
             text: error.text,
             })
         });
-        e.target.reset()
-    };
+        recaptchaRef.current.reset();
+    }
 
     return (
-        <Form className="food-delivery" onSubmit={handleOnSubmit} style={deliveryDisplay}>
+        <Form className="food-delivery" onSubmit={handleSubmit} style={deliveryDisplay}>
             <Row className="first-last">
                 <Form.Group as={Col} md="3" controlId="validationCustom01">
                     <Form.Label>First name</Form.Label>
@@ -46,7 +61,9 @@ export function FoodDelivery() {
                     type="text"
                     placeholder="John"
                     minLength={2}
-                    name="first_name"
+                    name="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group as={Col} md="3" controlId="validationCustom02">
@@ -56,7 +73,9 @@ export function FoodDelivery() {
                     type="text"
                     placeholder="Doe"
                     minLength={2}
-                    name="last_name"
+                    name="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     />
                 </Form.Group>
             </Row>
@@ -67,7 +86,9 @@ export function FoodDelivery() {
                     type="email" 
                     placeholder="name@example.com" 
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    name="email_address" 
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} 
                     required 
                     />
                 </Form.Group>
@@ -77,7 +98,9 @@ export function FoodDelivery() {
                     type="tel" 
                     placeholder="(999)999-9999" 
                     pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
-                    name="phone_number" 
+                    name="phone" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required 
                     />
                 </Form.Group>
@@ -87,21 +110,26 @@ export function FoodDelivery() {
                     type='radio'
                     label='Food Prep'
                     id='prep-radio'
-                    value='prep'
-                    name="food_prep"
-                    checked={option === 'prep'}
-                    onChange={e => setOption(e.currentTarget.value)}
+                    value='Food Prep'
+                    name="volOption"
+                    checked={volOption === 'Food Prep'}
+                    onChange={(e) => setVolOption(e.target.value)}
                 />
                 <Form.Check
                     type='radio'
                     label='Food Delivery'
                     id='delivery-radio'
-                    value='delivery'
-                    name="food_delivery"
-                    checked={option === 'delivery'}
-                    onChange={e => setOption(e.currentTarget.value)}
+                    value='Food Delivery'
+                    name="volOption"
+                    checked={volOption === 'Food Delivery'}
+                    onChange={(e) => setVolOption(e.target.value)}
                 />
             </Row>
+            <ReCAPTCHA 
+            ref={recaptchaRef}
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+            size='invisible'
+            />
             <Button type="submit">Submit</Button>
         </Form>
     );
